@@ -17,14 +17,11 @@ namespace BeatLeader.UI.MainMenu;
 internal class SpecialEventMapPanel : ReactiveComponent {
     #region Public API
 
-    public PlatformEventMap? Map {
-        get => _map.Value;
-        set {
-            _map.Value = value;
+    public void SetData(PlatformEventMap? map) {
+        _map.Value = map;
 
-            if (value != null) {
-                _mapDetail.Value = value.song;
-            }
+        if (map != null) {
+            _mapDetail.Value = map.song;
         }
     }
 
@@ -42,7 +39,7 @@ internal class SpecialEventMapPanel : ReactiveComponent {
 
     #region Constuct
 
-    private ObservableValue<PlatformEventMap?> _map = null!;
+    public ObservableValue<PlatformEventMap?> _map = null!;
     private ObservableValue<MapDetail> _mapDetail = null!;
 
     private AudioClip? _previewClip;
@@ -107,8 +104,8 @@ internal class SpecialEventMapPanel : ReactiveComponent {
                             Overflow = TextOverflowModes.Ellipsis,
                             FontSize = 3.5f
                         }
-                        .Animate(_map, (x, y) => {
-                            if (y == null) {
+                        .Animate(_map, (x, y) => { 
+                            if (y == null) { 
                                 x.Enabled = false;
                                 return;
                             }

@@ -70,8 +70,7 @@ namespace BeatLeader.Models {
             avatar = null,
             country = "not set",
             rank = -1,
-            pp = -1,
-            clans = []
+            pp = -1
         };
 
         public string id;
@@ -84,10 +83,10 @@ namespace BeatLeader.Models {
         public int experience;
         public int prestige;
         public float pp;
-        public string? role; //TODO: move role parsing here
-        public string[]? friends;
+        public string role;
+        public string[] friends;
         public Clan[] clans;
-        public ServiceIntegration[]? socials;
+        public ServiceIntegration[] socials;
         public PlayerContextExtension[]? contextExtensions;
         public ProfileSettings? profileSettings;
 

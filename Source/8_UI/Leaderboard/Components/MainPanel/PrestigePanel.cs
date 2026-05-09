@@ -12,7 +12,7 @@ namespace BeatLeader.Components {
     internal class PrestigePanel : AbstractReeModal<object> {
         #region Init / Dispose
 
-        private FireworksController? fireworksController;
+        private FireworksController fireworksController = null;
 
         protected override void OnInitialize() {
             base.OnInitialize();
@@ -35,7 +35,7 @@ namespace BeatLeader.Components {
         private void OnProfileRequestStateChanged(WebRequests.IWebRequest<Player> instance, WebRequests.RequestState state, string? failReason) {
             switch (state) {
                 case WebRequests.RequestState.Finished:
-                    var player = instance.Result!;
+                    Player player = instance.Result;
                     if (player.level == 100) {
                         _PrestigeYesButton.interactable = true;
                     } else {
@@ -50,7 +50,7 @@ namespace BeatLeader.Components {
             string? failReason) {
             switch (state) {
                 case WebRequests.RequestState.Finished:
-                    if (instance.Result!.Status != ScoreUploadStatus.Error) {
+                    if (instance.Result.Status != ScoreUploadStatus.Error) {
                         Player player = instance.Result.Score.Player;
                         if (player.level == 100) {
                             _PrestigeYesButton.interactable = true;
@@ -63,7 +63,7 @@ namespace BeatLeader.Components {
             }
         }
 
-        public static event Action? PrestigeWasPressedEvent;
+        public static event Action PrestigeWasPressedEvent;
 
         #endregion
 
@@ -80,7 +80,7 @@ namespace BeatLeader.Components {
         }
 
         private async Task<bool> Fireworks(double duration) {
-            fireworksController!.enabled = true;
+            fireworksController.enabled = true;
             await Task.Delay(TimeSpan.FromSeconds(duration));
             fireworksController.enabled = false;
             return true;

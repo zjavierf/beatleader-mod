@@ -106,7 +106,7 @@ namespace BeatLeader.Components {
             _gameplayModifiers = modifiers;
             _modifiersRating = GameplayModifiersPanelPatch.ModifiersRating;
             _modifiersMap = GameplayModifiersPanelPatch.ModifiersMap;
-            SetDiffInfo(_diffInfo!.Value);
+            SetDiffInfo((DiffInfo)_diffInfo);
         }
 
         #endregion

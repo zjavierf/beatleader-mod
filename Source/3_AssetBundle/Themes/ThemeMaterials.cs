@@ -3,7 +3,6 @@
 namespace BeatLeader.Themes {
     [CreateAssetMenu(fileName = "ThemeMaterials", menuName = "ThemeMaterials collection")]
     public class ThemeMaterials : ScriptableObject {
-        #nullable disable
         public Material tier1AvatarFull;
         public Material tier1AvatarSmall;
 
@@ -12,9 +11,8 @@ namespace BeatLeader.Themes {
 
         public Material tier3AvatarFull;
         public Material tier3AvatarSmall;
-        #nullable enable
 
-        public bool TryGetAvatarMaterial(ThemeTier tier, bool smallVersion, out Material? material) {
+        public bool TryGetAvatarMaterial(ThemeTier tier, bool smallVersion, out Material material) {
             switch (tier) {
                 case ThemeTier.Tier1:
                     material = smallVersion ? tier1AvatarSmall : tier1AvatarFull;
