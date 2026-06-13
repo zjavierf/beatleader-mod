@@ -17,5 +17,5 @@ If you experience any issues, have any suggestions or bug reports - you can leav
 
 ## Dependencies
 
-- BSIPA, BSML, SiraUtil - available in [ModAssistant](https://github.com/Assistant/ModAssistant/releases/latest) and on the [BeatMods website](https://beatmods.com/#/mods)
+- BSIPA, BeatSaberMarkupLanguage, SiraUtil - available in [ModAssistant](https://github.com/Assistant/ModAssistant/releases/latest) and on the [BeatMods website](https://beatmods.com/#/mods)
 - [LeaderboardCore](https://github.com/rithik-b/LeaderboardCore)
